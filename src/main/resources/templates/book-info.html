@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/header.html :: common-header"></head>
+<body>
+	<!-- Navbar -->
+	<div th:replace="/common/header.html :: navbar"></div>
+	<!-- Container begin -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md">
+				<a th:href="@{/update-book?id=}+${book.id}">Edit...</a>
+				<a th:href="@{/book-list}">Back.</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<img class="card-img-top"
+					th:src="@{/image/book/}+${book.id}+'.png'"
+					alt="Book Cover" style="height: 500px">
+			</div>
+			<div class="col-md-4">
+				<div style="margin-top: 110px">
+					<p>
+						<strong>Title: </strong><span th:text="${book.title}"></span>
+					</p>
+					<p>
+						<strong>Author: </strong><span th:text="${book.author}"></span>
+					</p>
+					<p>
+						<strong>Publisher: </strong><span th:text="${book.publisher}"></span>
+					</p>
+					<p>
+						<strong>Publication date: </strong><span
+							th:text="${book.publicationDate}"></span>
+					</p>
+					<p>
+						<strong>Language: </strong><span th:text="${book.language}"></span>
+					</p>
+					<p>
+						<strong>Category: </strong><span th:text="${book.category}"></span>
+					</p>
+					<p>
+						<strong>Number of pages: </strong><span
+							th:text="${book.numberOfPages}"></span>
+					</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div style="margin-top: 110px">
+					<p>
+						<strong>Format: </strong><span th:text="${book.format}"></span>
+					</p>
+					<p>
+						<strong>ISBN: </strong><span th:text="${book.isbn}"></span>
+					</p>
+					<p>
+						<strong>Shipping weight: </strong><span th:text="${book.shippingWeight}"></span>
+					</p>
+					<p>
+						<strong>List price: </strong><span
+							th:text="${book.listPrice}"></span>
+					</p>
+					<p>
+						<strong>Our price: </strong><span th:text="${book.ourPrice}"></span>
+					</p>
+					<p>
+						<strong>Active: </strong><span th:text="${book.active}"></span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8" style="margin-top: 30px">
+				<p>
+					<strong>Book description :</strong>
+				</p>
+				<p th:utext="${book.description}"></p>
+			</div>
+		</div>
+
+	</div>
+	<!-- Container end -->
+	<!-- Bottom Scripts -->
+	<div th:replace="/common/header.html :: body-bottom-scripts"></div>
+</body>
+</html>

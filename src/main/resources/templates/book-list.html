@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/header.html :: common-header" />
+<body>
+	<!-- Navbar -->
+	<div th:replace="/common/header.html :: navbar"></div>
+	<!-- Container begin -->
+	<div class="container">
+		<h2>List of books in stock :</h2>
+		<table id="bookListTable" class="table table-striped"
+			style="background-color: #8DCAFF">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Author</th>
+					<th>Category</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="book : ${bookList}">
+					<th><a class="book-title-color"
+						th:href="@{/book-info?id=}+${book.id}"><span
+							th:text="${book.title}"></span></a></th>
+					<th th:text="${book.author}"></th>
+					<th th:text="${book.category}"></th>
+					<th th:text="${book.ourPrice}"></th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- Container end -->
+	<!-- Script begin -->
+
+	<div th:replace="/common/header.html :: body-bottom-scripts"></div>
+	<!-- Script begin -->
+</body>
+</html>

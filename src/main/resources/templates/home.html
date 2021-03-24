@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/header.html :: common-header" />
+<body>
+	<!-- Navbar -->
+	<div th:replace="/common/header.html :: navbar"></div>
+	<!-- Container begin -->
+	<div class="container">
+		<h1 style="text-align: center">This is the administrator home page !</h1>
+		
+		<h1 style="margin-top:30px">Hello <span th:text="${user.firstName}"></span></h1>
+	</div>
+	<!-- Container end -->
+
+	<!-- Script begin -->
+	<div th:replace="/common/header.html :: body-bottom-scripts"></div>
+	<!-- Script begin -->
+</body>
+</html>

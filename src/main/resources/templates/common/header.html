@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="common-header">
+
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author"
+	content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
+<meta name="generator" content="Jekyll v4.1.1" />
+
+<title>Admin Portal</title>
+
+<link rel="icon" th:href="@{/image/icon.png}" />
+<link rel="canonical"
+	href="https://getbootstrap.com/docs/4.5/examples/navbars/" />
+
+<!-- Data table -->
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+<!-- Bootstrap core CSS -->
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+<!-- Custom styles -->
+<link th:href="@{css/index-style.css}" rel="stylesheet">
+<link th:href="@{css/account-style.css}" rel="stylesheet">
+
+</head>
+<body>
+
+	<div th:fragment="navbar">
+		<!-- Navbar being -->
+		<nav class="navbar navbar-expand-md navbar-custom-bg">
+			<a class="navbar-brand" href="@{/}"><img class="img-fluid"
+				th:src="@{/image/wisestore-logo.png}" alt="WiseStore Logo" /></a>
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link nav-custom-formatting"
+						href="#">Link</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle nav-custom-formatting" href="#"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown04">
+							<a class="dropdown-item" th:href="@{/add-book}">Add new book</a>
+							<a class="dropdown-item" th:href="@{/book-list}">Show all
+								books</a>
+						</div></li>
+				</ul>
+			</div>
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link nav-custom-formatting"
+					sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a></li>
+			</ul>
+		</nav>
+		<!-- Navbar end -->
+	</div>
+	<div th:fragment="body-bottom-scripts">
+		<!--  this is an enhancement for the Descrition textarea field (it keeps the formatting -->
+		<script
+			src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"
+			referrerpolicy="origin"></script>
+		<script>
+			tinymce.init({
+				selector : 'textarea'
+			});
+		</script>
+		<!-- This is the js for Font Awesome -->
+		<script src="https://kit.fontawesome.com/cbcd5af621.js"
+			crossorigin="anonymous"></script>
+		<!-- Various js -->
+		<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+		<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+		<!-- This js files are for DataTable -->
+		<script
+			src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('#bookListTable').DataTable();
+			});
+		</script>
+	</div>
+</body>
+</html>
